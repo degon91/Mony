@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Note For You</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Sacramento&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Romantic Entry Screen (Unlocks Audio on Tap) -->
+    <div id="entry-overlay">
+        <div class="overlay-content">
+            <span class="heart-icon">♥</span>
+            <h2>Ivany Reitmaier...</h2>
+            <button id="start-btn" onclick="openPage()">Me toca</button>
+        </div>
+    </div>
+
+    <!-- Background Music Track -->
+    <audio id="proposal-music" loop preload="auto">
+        <source src="Kizz - Dynamo - BUNITA.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <main class="card-container">
+        <header class="header">
+            <span class="heart-icon">♥</span>
+            <h1 class="script-heading">Amor da minha vida</h1>
+        </header>
+
+        <section class="photo-wrapper">
+            <img src="Amor.png" alt="Nh'amor linda" class="hero-photo">
+        </section>
+
+        <article class="letter-body">
+            <p>Se bo t li t'alel, quer dizer ke bo scanea quel QR Code — e un cria un moment p dzeb algo k'un t sinti.</p>
+
+            <p>K foi preciss mut temp p sabê k'bo ê a mulher k'un crê n nha lod, na verdad, temp ê so un detalhe quando se trata de bo. Bo ê resposta das minhas orações que nosso Pai me enviou.</p>
+
+            <p>A cada dia que passa bo t mostram k nha xcolha k pudia ter sid mjor, inda bem k'un tive oportunidad d teb n nha vida ced p'am podê amob atê fca bidjin.</p>
+
+            <p>E bo sabê o melhor de tud iss? Saber k'bo t sinti o mesmo p mim, "você não me ama mais? ;)"</p>
+
+            <p>Nem xtrela na cêu nem luar riba onda di mar, ka ta brilha mas ki bo, menina bunita angelical ka tem nada ness mundo ki ta separam di bo!</p>
+        </article>
+
+        <footer class="closing-section">
+            <button class="reveal-btn" onclick="revealQuestion()">Clicá...</button>
+            <div id="final-question" class="hidden-question">
+                <h2>Volta cara...</h2>
+                <p class="subtext">Bo crê casá ma mim? ♥</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        function openPage() {
+            const music = document.getElementById('proposal-music');
+            const overlay = document.getElementById('entry-overlay');
+
+            // Play background music instantly on tap
+            if (music) {
+                music.volume = 0.6; // Set volume (0.0 to 1.0)
+                music.play().catch(error => {
+                    console.log("Audio playback error:", error);
+                });
+            }
+
+            // Fade out and remove overlay
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 800);
+        }
+
+        function revealQuestion() {
+            const btn = document.querySelector('.reveal-btn');
+            const question = document.getElementById('final-question');
+            
+            btn.style.display = 'none';
+            question.classList.add('show');
+        }
+    </script>
+</body>
+</html>
